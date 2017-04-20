@@ -1,3 +1,7 @@
-.PHONY: link
-link:
-	stow vim
+.PHONY: up
+up:
+	stow */
+
+.PHONY: down
+down:
+	stow -D */
