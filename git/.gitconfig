@@ -1,0 +1,11 @@
+# This is Git's per-user configuration file.
+[user]
+name = Aleksander Vognild Burkow
+email = aleksanderburkow@gmail.com
+
+[alias]
+br = branch -v
+cb = !git checkout -f master && git pull && git checkout -b
+
+[push]
+default = current
