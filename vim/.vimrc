@@ -8,15 +8,17 @@ call vundle#begin()
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'fatih/vim-go'
-Plugin 'editorconfig/editorconfig-vim'
+Plugin 'sheerun/vim-polyglot'
 Plugin 'scrooloose/syntastic'
-Plugin 'leafgarland/typescript-vim'
-Plugin 'tikhomirov/vim-glsl'
-Plugin 'rust-lang/rust.vim'
-Plugin 'ternjs/tern_for_vim'
-Plugin 'pangloss/vim-javascript'
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'vim-airline/vim-airline'
+"Plugin 'VundleVim/Vundle.vim'
+"Plugin 'fatih/vim-go'
+"Plugin 'leafgarland/typescript-vim'
+"Plugin 'tikhomirov/vim-glsl'
+"Plugin 'rust-lang/rust.vim'
+"Plugin 'ternjs/tern_for_vim'
+"Plugin 'pangloss/vim-javascript'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -27,11 +29,17 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
+" Airline configuration
+set laststatus=2
+"let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+
+" Syntastic configuration
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_checkers = ['eslint', 'tern_lint']
+let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_typescript_checkers = ['tslint'] 
 let g:syntastic_python_checkers = ['flake8', 'mypy']
 let g:syntastic_error_symbol = '❌'
@@ -70,7 +78,3 @@ set list
 set listchars=nbsp:…,tab:▸\ ,trail:·
 
 nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
-
-" autocmd FileType javascript set formatprg=prettier\ --stdin
-" autocmd BufWritePre *.js :normal gggqG
-" autocmd BufWritePre *.js exe "normal! gggqG\<C-o>\<C-o>"
