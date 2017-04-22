@@ -9,3 +9,12 @@ cb = !git checkout -f master && git pull && git checkout -b
 
 [push]
 default = current
+
+[rebase]
+autosquash = true
+
+[core]
+editor = vi
+
+[diff]
+compactionHeuristic = true

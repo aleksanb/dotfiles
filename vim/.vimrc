@@ -8,10 +8,11 @@ call vundle#begin()
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
-Plugin 'sheerun/vim-polyglot'
 Plugin 'scrooloose/syntastic'
+Plugin 'sheerun/vim-polyglot'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'vim-airline/vim-airline'
+Plugin 'jiangmiao/auto-pairs'
 "Plugin 'VundleVim/Vundle.vim'
 "Plugin 'fatih/vim-go'
 "Plugin 'leafgarland/typescript-vim'
@@ -39,6 +40,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_typescript_checkers = ['tslint'] 
 let g:syntastic_python_checkers = ['flake8', 'mypy']
@@ -55,11 +57,6 @@ let g:syntastic_rust_checkers = []
 let g:rustfmt_autosave = 1
 let g:racer_cmd = "racer"
 let g:racer_experimental_completer = 1
-
-au FileType rust nmap gd <Plug>(rust-def)
-au FileType rust nmap gs <Plug>(rust-def-split)
-au FileType rust nmap gx <Plug>(rust-def-vertical)
-au FileType rust nmap <leader>gd <Plug>(rust-doc)
 
 highlight link SyntasticErrorSign SignColumn
 highlight link SyntasticWarningSign SignColumn
@@ -78,3 +75,10 @@ set list
 set listchars=nbsp:…,tab:▸\ ,trail:·
 
 nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
+
+"autocmd FileType html setlocal shiftwidth=2 tabstop=2
+"autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
+"autocmd FileType less setlocal shiftwidth=2 tabstop=2
+"autocmd FileType css setlocal shiftwidth=2 tabstop=2
+"autocmd FileType rb setlocal shiftwidth=2 tabstop=2
+"autocmd FileType json setlocal shiftwidth=2 tabstop=2
