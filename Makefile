@@ -1,7 +1,7 @@
 .PHONY: up
 up:
-	stow */
+	stow -t ~ */
 
 .PHONY: down
 down:
-	stow -D */
+	stow -t ~ -D */
