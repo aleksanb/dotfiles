@@ -6,6 +6,9 @@ email = aleksanderburkow@gmail.com
 [alias]
 br = branch -v
 cb = !git checkout -f master && git pull && git checkout -b
+s = git status
+ss = git status --staged
+p = git push
 
 [push]
 default = current

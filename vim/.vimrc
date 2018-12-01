@@ -1,18 +1,30 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
+call plug#begin('~/.vim/plugged')
+
+Plug 'https://github.com/w0rp/ale.git'
+Plug 'vim-airline/vim-airline'
+call plug#end()
+
+let g:ale_completion_enabled = 1
+let g:ale_fix_on_save = 1
+let g:ale_linters = {'rust': ['rls']}
+let g:ale_fixers = {'rust': ['rustfmt']}
+let g:ale_rust_rls_toolchain = 'nightly'
+
+" set nocompatible              " be iMproved, required
+" filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" set rtp+=~/.vim/bundle/Vundle.vim
+" call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
-Plugin 'scrooloose/syntastic'
-Plugin 'sheerun/vim-polyglot'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'vim-airline/vim-airline'
-Plugin 'jiangmiao/auto-pairs'
+" Plugin 'scrooloose/syntastic'
+" Plugin 'sheerun/vim-polyglot'
+" Plugin 'editorconfig/editorconfig-vim'
+" Plugin 'vim-airline/vim-airline'
+" Plugin 'jiangmiao/auto-pairs'
 "Plugin 'VundleVim/Vundle.vim'
 "Plugin 'fatih/vim-go'
 "Plugin 'leafgarland/typescript-vim'
@@ -22,12 +34,12 @@ Plugin 'jiangmiao/auto-pairs'
 "Plugin 'pangloss/vim-javascript'
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
+" call vundle#end()            " required
 filetype plugin indent on    " required
 
 set statusline+=[%n]\ %t
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 " Airline configuration
@@ -36,27 +48,27 @@ set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
 
 " Syntastic configuration
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_typescript_checkers = ['tslint'] 
-let g:syntastic_python_checkers = ['flake8', 'mypy']
-let g:syntastic_error_symbol = '❌'
-let g:syntastic_style_error_symbol = '⁉️'
-let g:syntastic_warning_symbol = '⚠️'
-let g:syntastic_style_warning_symbol = '💩'
+" let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
+"
+"let g:syntastic_javascript_checkers = ['eslint']
+"let g:syntastic_typescript_checkers = ['tslint'] 
+"let g:syntastic_python_checkers = ['flake8', 'mypy']
+"let g:syntastic_error_symbol = '❌'
+"let g:syntastic_style_error_symbol = '⁉️'
+"let g:syntastic_warning_symbol = '⚠️'
+"let g:syntastic_style_warning_symbol = '💩'
 
 " Javascript stuff
-let g:javascript_plugin_jsdoc = 1
+" let g:javascript_plugin_jsdoc = 1
 
 " Rust stuff
-let g:syntastic_rust_checkers = []
-let g:rustfmt_autosave = 1
-let g:racer_cmd = "racer"
-let g:racer_experimental_completer = 1
+" let g:syntastic_rust_checkers = []
+" let g:rustfmt_autosave = 1
+" let g:racer_cmd = "racer"
+" let g:racer_experimental_completer = 1
 
 highlight link SyntasticErrorSign SignColumn
 highlight link SyntasticWarningSign SignColumn
