@@ -9,6 +9,7 @@ cb = !git checkout -f master && git pull && git checkout -b
 s = git status
 ss = git status --staged
 p = git push
+fr = !git fetch && git reset --hard origin
 
 [push]
 default = current
