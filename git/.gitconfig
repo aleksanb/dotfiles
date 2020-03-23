@@ -9,7 +9,13 @@ cb = !git checkout -f master && git pull && git checkout -b
 s = git status
 ss = git status --staged
 p = git push
-fr = !git fetch && git reset --hard origin
+changes = log -p -M --follow --stat --
+b = for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset)) %(upstream:track)'
+current = rev-parse --abbrev-ref HEAD
+wip = !git commit -am "WIP"
+fr = !CURRENT=$(git current) && git fetch && git reset --hard origin/$CURRENT
+f = !git checkout master && git pull && git checkout -b
+fs = "!git stash && git checkout master && git pull && git checkout -b \"$1\" && git stash apply #"
 
 [push]
 default = current
@@ -21,4 +27,8 @@ autosquash = true
 editor = vi
 
 [diff]
-compactionHeuristic = true
+    compactionHeuristic = true
+    colorMoved = zebra
+
+[fetch]
+	prune = true
